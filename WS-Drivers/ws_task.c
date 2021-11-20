@@ -555,48 +555,10 @@ void WS_Timer_10MS_Callback(void)
 //	
 //}
 
-//void Wave_Analysis(void)
-//{
-//	int c=0;
-//	uint16_t i=0,j=ScanSize-1;
-//	uint16_t *data = Dif(data,ScanSize);			//积分数组
-//	qsort(data,ScanSize,sizeof(uint16_t),cmp);		//排序
-//	for(i=0;i<ScanSize-1;i++)
-//	{
-//		if(data[0]>=data[i]+5||data[0]<=data[i]-5)	//模糊范围匹配频数
-//			c--;
-//		else c++;
-//		
-//	}
-//	if(c<2)//不匹配数为1
-//	{
-//		Wave_Type = 1;//方波
-//	}
-//	else if(c<=5)//不匹配数为2
-//	{
-//		Wave_Type = 2;//三角波
-//	}
-//	else 
-//	{
-//		Wave_Type = 3;//正弦波
-//	}
-//}
 
 
-//void is_rectangle(uint16_t i)
-//{
 
-//	if(fabs((*(p_adcBuffer+i)-*(p_adcBuffer+i-1))*2.5/4096)>=Vp/3)
-//	{
 
-//		Rectangle++;
-//	}
-//	if(Rectangle>100)
-//	{
-//		
-//	}
-//	
-//}
 
 
 
@@ -680,61 +642,6 @@ void WS_Timer_10MS_Callback(void)
 //}
 
 
-
-//void Wave_Dif(void)
-//{
-//	static uint32_t Vn=0,_Vn=0;
-//	uint16_t i,time=0,_time=0;
-
-//	if(ex1_flag == 1)
-//	{
-//		ex1_flag = 0;
-//		_Vn = HAL_ADC_GetValue(&hadc2);
-//		
-//		while(time<=(500000.0/f)+10)
-//		{
-//			WS_CCP_Measure_Time(1,0);
-//			Vn = HAL_ADC_GetValue(&hadc2);						//跟新数据
-//			time += WS_CCP_Measure_Time(1,1);
-//			dV_Buf[i++] = (Vn - _Vn)/(time-_time);	//求微分
-//			_Vn = Vn;
-//			_time = time;
-//			if(i>99)
-//			{
-//				i=0;
-//				dV_Flag = 1;
-//			}
-//			
-//			
-//		}
-//		
-//		ex1_flag = 1;
-//	}
-
-//}
-
-//void Wave_Find_Vm(void)
-//{
-////	uint32_t max,min;
-//	uint32_t *ADC_Buf;
-//	uint16_t i;
-
-//	if(ex1_flag == 1)
-//	{
-//		ADC_Buf = pvPortMalloc(ScanSize);
-//		HAL_ADC_Start_DMA(&hadc1,(uint32_t  *)ADC_Buf,ScanSize/2);//大约6us
-//		ex1_flag = 0;
-//		for(i=0;ex1_flag == 0||i>=ScanSize/2;i++)
-//		{
-//			if(*(ADC_Buf+i)>Vmax)Vmax=*(ADC_Buf+i);
-//			if(*(ADC_Buf+i)<Vmin)Vmin=*(ADC_Buf+i);
-
-//		}
-//		ex1_flag = 0;
-//		
-//	}
-
-//}
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
   /* Prevent unused argument(s) compilation warning */
